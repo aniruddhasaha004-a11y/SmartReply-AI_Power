@@ -1,0 +1,3 @@
+com\smartreply\ai\GeminiIntegrationTest.class
+com\smartreply\ai\EmailReplyAIServiceTest.class
+com\smartreply\controller\AuthControllerTest.class

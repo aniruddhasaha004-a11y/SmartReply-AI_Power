@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: smartreply-backend
+
+  # MongoDB Configuration
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/smartreply}
+
+  # Spring AI Google Gemini Configuration
+  ai:
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        chat:
+          options:
+            model: gemini-3.5-flash
+
+# JWT Configuration
+app:
+  jwt:
+    secret: ${JWT_SECRET:dGhpcy1pcy1hLXZlcnktc2VjdXJlLWFuZC1sb25nLXNlY3JldC1rZXktZm9yLXNtYXJ0cmVwbHktYXBwbGljYXRpb24td2hpY2gtaXMtdXNlZC1mb3Itand0LXNpZ25pbmc=}
+    expiration-ms: 86400000 # 24 Hours
+  cors:
+    allowed-origins: ${FRONTEND_URL:http://localhost:5173,chrome-extension://*}
+
+# AWS S3 Storage Configuration
+aws:
+  s3:
+    bucket-name: ${AWS_S3_BUCKET_NAME:smartreply-assets}
+    region: ${AWS_REGION:us-east-1}
+  credentials:
+    access-key: ${AWS_ACCESS_KEY_ID:}
+    secret-key: ${AWS_SECRET_ACCESS_KEY:}
+
+# Storage Provider: 's3' or 'local' (fallback)
+storage:
+  provider: ${STORAGE_PROVIDER:local}
+  local-dir: ${STORAGE_LOCAL_DIR:./storage-uploads}
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.ai: INFO
+    com.smartreply: DEBUG

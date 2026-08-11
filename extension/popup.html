@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartReply</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="logo-container">
+      <div class="logo-icon">SR</div>
+      <h1 class="logo-title">SmartReply</h1>
+    </div>
+    <div id="user-badge" class="hidden">
+      <span id="user-name-abbr" title="Profile">U</span>
+    </div>
+  </header>
+
+  <main class="app-main">
+    
+    <!-- Phase 1: Login Form (Shown if not authenticated) -->
+    <div id="auth-section" class="section animate-fade-in">
+      <div class="header-desc">
+        <h2>Sign In</h2>
+        <p>Login with your SmartReply dashboard credentials</p>
+      </div>
+
+      <div id="auth-error" class="alert alert-error hidden"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" id="btn-login" class="btn btn-primary">
+          <span>Sign In</span>
+        </button>
+      </form>
+      <p class="auth-footer">
+        Need an account? <a href="http://localhost:5173/register" target="_blank">Sign Up here</a>
+      </p>
+    </div>
+
+    <!-- Phase 2: AI Reply Generator (Shown if authenticated) -->
+    <div id="generator-section" class="section hidden animate-fade-in">
+      
+      <!-- Email Context Status -->
+      <div id="context-banner" class="context-banner">
+        <div class="badge">Gmail Loaded</div>
+        <p id="email-subject-preview">Reading active email...</p>
+        <button id="btn-reload-context" class="btn-text" title="Reload Email Content">Reload</button>
+      </div>
+
+      <div id="generator-error" class="alert alert-error hidden"></div>
+
+      <!-- Tone Selection -->
+      <div class="form-group">
+        <label>Reply Tone</label>
+        <div class="tone-pills">
+          <button type="button" class="tone-pill active" data-tone="Professional">Professional</button>
+          <button type="button" class="tone-pill" data-tone="Friendly">Friendly</button>
+          <button type="button" class="tone-pill" data-tone="Formal">Formal</button>
+          <button type="button" class="tone-pill" data-tone="Casual">Casual</button>
+          <button type="button" class="tone-pill" data-tone="Short">Short</button>
+          <button type="button" class="tone-pill" data-tone="Polite">Polite</button>
+        </div>
+      </div>
+
+      <!-- Generate Trigger -->
+      <button id="btn-generate" class="btn btn-primary">
+        <span>Generate Reply</span>
+      </button>
+
+      <!-- Output Panel -->
+      <div id="output-wrapper" class="output-wrapper hidden">
+        <label>Generated Smart Draft</label>
+        <textarea id="output-text" rows="8"></textarea>
+        
+        <div class="action-grid">
+          <button id="btn-insert" class="btn btn-primary">
+            <span>Insert to Reply</span>
+          </button>
+          <button id="btn-copy" class="btn btn-secondary">
+            <span>Copy Text</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer logout -->
+      <footer class="generator-footer">
+        <button id="btn-logout" class="btn-link">Sign Out</button>
+      </footer>
+    </div>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
