@@ -25,7 +25,7 @@ app:
     secret: ${JWT_SECRET:dGhpcy1pcy1hLXZlcnktc2VjdXJlLWFuZC1sb25nLXNlY3JldC1rZXktZm9yLXNtYXJ0cmVwbHktYXBwbGljYXRpb24td2hpY2gtaXMtdXNlZC1mb3Itand0LXNpZ25pbmc=}
     expiration-ms: 86400000 # 24 Hours
   cors:
-    allowed-origins: ${FRONTEND_URL:http://localhost:5173,https://smart-reply-ai-power.vercel.app,chrome-extension://*}
+    allowed-origins: ${FRONTEND_URL:*}
 
 # AWS S3 Storage Configuration
 aws:
