@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Get backend API URL from environment variables or default to localhost:8080
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+const API_URL = import.meta.env.VITE_API_URL || 'https://smartreply-ai-power.onrender.com';
 
 const api = axios.create({
   baseURL: API_URL,

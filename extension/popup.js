@@ -1,6 +1,6 @@
 // popup.js - SmartReply Extension Logic
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'https://smartreply-ai-power.onrender.com';
 
 // Global variables for active email details
 let activeEmailSubject = '';

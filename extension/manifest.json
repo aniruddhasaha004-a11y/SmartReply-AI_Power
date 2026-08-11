@@ -10,7 +10,7 @@
   ],
   "host_permissions": [
     "https://mail.google.com/*",
-    "http://localhost:8080/*"
+    "https://smartreply-ai-power.onrender.com/*"
   ],
   "action": {
     "default_popup": "popup.html"
